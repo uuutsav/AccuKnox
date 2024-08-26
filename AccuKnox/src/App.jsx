@@ -1,18 +1,16 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from './Components/Navbar'
+import Widget from './Components/Widget'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
       <Navbar />
-      <h1 className="text-xl">
-        Hello world!
-      </h1>
+      <div className='flex h-[95vh] m-10 p-5'>
+        <Widget title={"Widget Title"}/>
+      </div>
     </>
   )
 }
