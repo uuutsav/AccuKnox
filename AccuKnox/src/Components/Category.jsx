@@ -1,5 +1,7 @@
 import React from 'react'
 import Widget from './Widget'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 const Category = ({ categoryName, widgets }) => {
 
@@ -11,10 +13,14 @@ const Category = ({ categoryName, widgets }) => {
             <div className='flex flex-row gap-3'>
                 {widgets && widgets.map((elem, index) => {
                     // console.log(elem.widgetText)
-                    {console.log(elem.isGraph)}
 
                     return <Widget key={index} title={elem.widgetName} isGraph={elem.isGraph} text={elem.widgetText} />
                 })}
+                <div className='h-[30vh] w-1/3 flex justify-center items-center bg-white opacity-70 py-2 px-5 rounded-2xl'>
+                    <div className='px-5 py-2 text-xl border-gray-300 border-2 rounded-xl text-gray-600 hover:border-gray-800 hover:text-black'>
+                        <FontAwesomeIcon icon={faPlus} className='mr-5'/>Add Widget
+                    </div>
+                </div>
             </div>
         </div>
     )

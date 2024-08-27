@@ -15,11 +15,10 @@ function App() {
         <>
             <Navbar />
             <div className='flex flex-col min-h[94vh] m-10 p-5 '>
-
-            {data.categories.map((elem, index) => {
-                // console.log(index)
-                return <Category key={index} categoryName={elem.category} widgets={elem.widgets} />
-            })}
+                {data.categories.map((elem, index) => {
+                    // console.log(index)
+                    return <Category key={index} categoryName={elem.category} widgets={elem.widgets} />
+                })}
             </div>
         </>
     )
