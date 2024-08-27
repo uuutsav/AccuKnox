@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import Navbar from './Components/Navbar'
-import Widget from './Components/Widget'
 import Category from './Components/Category'
 import { data } from './dummyData'
+import HeadingBar from './Components/HeadingBar'
 
 function App() {
 
@@ -14,7 +14,8 @@ function App() {
     return (
         <>
             <Navbar />
-            <div className='flex flex-col min-h[94vh] m-10 p-5 '>
+            <HeadingBar />
+            <div className='flex flex-col min-h[94vh] m-10 mt-0 p-5 '>
                 {data.categories.map((elem, index) => {
                     // console.log(index)
                     return <Category key={index} categoryName={elem.category} widgets={elem.widgets} />
