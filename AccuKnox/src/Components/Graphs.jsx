@@ -1,18 +1,40 @@
-import React from 'react'
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
+import React, { useEffect, useState } from 'react';
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts';
 
-const data = [
-    { name: 'Connected', value: 2 },
-    { name: 'Not Connected', value: 2 },
-];
-const COLORS = ['#0088FE', '#00C49F'];
+const Graphs = ({ graphData }) => {
+    const [formattedGraphData, setFormattedGraphData] = useState([]);
+    const [colors, setColors] = useState([]);
 
-const Graphs = () => {
+    useEffect(() => {
+        formatGraphData();
+    }, [graphData]); 
+
+    const formatGraphData = () => {
+        const tempGraphData = [];
+        const tempColors = [];
+
+        for (let key in graphData) {
+            const obj = {
+                name: key,
+                value: graphData[key],
+            };
+            tempGraphData.push(obj);
+            tempColors.push(getRandomColor());
+        }
+
+        setFormattedGraphData(tempGraphData);
+        setColors(tempColors);
+    };
+
+    const getRandomColor = () => {
+        return "#" + ((1 << 24) * Math.random() | 0).toString(16).padStart(6, "0");
+    };
+
     return (
         <ResponsiveContainer>
             <PieChart>
                 <Pie
-                    data={data}
+                    data={formattedGraphData}
                     cx="20%"
                     cy="50%"
                     startAngle={90}
@@ -20,19 +42,22 @@ const Graphs = () => {
                     innerRadius={60}
                     outerRadius={80}
                     fill='#8884d8'
-                    // paddingAngle={0}
                     dataKey="value"
                 >
-                    {data.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    {formattedGraphData.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
                     ))}
                 </Pie>
-                <Legend iconSize={30} layout='vertical' align='center' verticalAlign='middle' wrapperStyle={{
-                    paddingLeft: "123px"
-                }} />
+                <Legend
+                    iconSize={30}
+                    layout='vertical'
+                    align='center'
+                    verticalAlign='middle'
+                    wrapperStyle={{ paddingLeft: "123px" }}
+                />
             </PieChart>
         </ResponsiveContainer>
-    )
-}
+    );
+};
 
-export default Graphs
+export default Graphs;
