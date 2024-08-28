@@ -27,7 +27,7 @@ const Category = ({ categoryName, widgets }) => {
                 {widgets && widgets.map((elem, index) => {
                     // console.log(elem.widgetText)
 
-                    return <Widget key={index} title={elem.widgetName} isGraph={elem.isGraph} text={elem.widgetText} />
+                    return <Widget key={index} i={index} title={elem.widgetName} isGraph={elem.isGraph} text={elem.widgetText} categoryName={categoryName} />
                 })}
                 <div className='h-[30vh] w-1/3 flex justify-center items-center bg-white opacity-70 py-2 px-5 rounded-2xl'>
                     <div className='px-5 py-2 text-xl border-gray-300 border-2 rounded-xl text-gray-600 hover:border-gray-800 hover:text-black cursor-pointer '
