@@ -20,3 +20,8 @@ export const showAddWidgetScreen = atom({
     key: 'showAddWidgetScreen',
     default: false,
 })
+
+export const searchQueryState = atom({
+    key: 'searchQueryState',
+    default: '',
+});
