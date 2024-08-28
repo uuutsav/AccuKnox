@@ -86,6 +86,21 @@ const data = {
                     }
                 },
             ]
+        },
+        {
+            category: "Ticket",
+            widgets: [
+                {
+                    widgetName: "Image Risk Assessment",
+                    isGraph: false,
+                    widgetText: "Hehe"
+                },
+                {
+                    widgetName: "Image Security Issues",
+                    isGraph: false,
+                    widgetText: "not hehe"
+                },
+            ]
         }
     ]
 }
