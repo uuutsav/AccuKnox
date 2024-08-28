@@ -17,23 +17,23 @@ const AddWidget = () => {
     const [categoryWidgets, setCategoryWidgets] = useRecoilState(categoryWidgetsState)
 
     useEffect(() => {
+        setCategoryWidgets(getCategoryWidgets(activeTab))
 
     }, [activeTab])
 
     const onTabClickHandler = (tabName) => {
         setActiveTab(tabName)
-        const widgets = getWidgets(tabName)
+        const widgets = getCategoryWidgets(tabName)
         setCategoryWidgets(widgets)
     }
 
-    const getWidgets = (categoryName) => {
+    const getCategoryWidgets = (categoryName) => {
         const searchCategory = initialData.categories.find((item) => {
             return item.category == categoryName
         })
         modifiedCategory = categoryName;
         return searchCategory.widgets
     }
-
 
     const handleCancel = () => {
         setShow(false);
@@ -56,6 +56,7 @@ const AddWidget = () => {
         }
         setInitialData(tempData);
         setShow(false);
+        // handle DB storage or API call to server here for permanent storage
     }
 
 
@@ -100,8 +101,6 @@ const AddWidget = () => {
                     <Button text={"Submit"} onClickHandler={handleSubmit} className={`px-8 bg-slate-900 text-white border-2 border-slate-900 `} />
                 </div>
             </div>
-
-
         </div>
     )
 }
