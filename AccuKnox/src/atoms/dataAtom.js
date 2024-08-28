@@ -10,6 +10,7 @@ export const permanentData = atom({
                     {
                         widgetName: "Cloud Accounts",
                         isGraph: true,
+                        isChecked: true,
                         widgetText: {
                             "Connected": 2,
                             "Not Connected": 2
@@ -18,6 +19,7 @@ export const permanentData = atom({
                     {
                         widgetName: "Cloud Account Risk Assessment",
                         isGraph: true,
+                        isChecked: true,
                         widgetText: {
                             "Failed": 1689,
                             "Warning": 681,
@@ -33,11 +35,13 @@ export const permanentData = atom({
                     {
                         widgetName: "Top 5 Namespace Specific Alerts",
                         isGraph: false,
+                        isChecked: true,
                         widgetText: "Hi, myself Kumar Utsav, final year Computer Science student."
                     },
                     {
                         widgetName: "Workload Alerts",
                         isGraph: false,
+                        isChecked: true,
                         widgetText: "I'm very much interested in web development, and technology in general."
                     }
                 ]
@@ -48,6 +52,7 @@ export const permanentData = atom({
                     {
                         widgetName: "Image Risk Assessment",
                         isGraph: true,
+                        isChecked: true,
                         widgetText: {
                             "Critical": 9,
                             "High": 150,
@@ -58,6 +63,7 @@ export const permanentData = atom({
                     {
                         widgetName: "Image Security Issues",
                         isGraph: true,
+                        isChecked: true,
                         widgetText: {
                             "Critical": 2,
                             "High": 2,
@@ -74,11 +80,13 @@ export const permanentData = atom({
                     {
                         widgetName: "Image Risk Assessment",
                         isGraph: false,
+                        isChecked: true,
                         widgetText: "Hehe"
                     },
                     {
                         widgetName: "Image Security Issues",
                         isGraph: false,
+                        isChecked: true,
                         widgetText: "not hehe"
                     },
                 ]

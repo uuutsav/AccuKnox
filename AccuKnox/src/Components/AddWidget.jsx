@@ -41,7 +41,6 @@ const AddWidget = () => {
     const handleSubmit = () => {
         if (!modifiedCategory) {
             setShow(false)
-            console.log("not hehe, ", modifiedCategory)
             return;
         }
 
@@ -59,6 +58,10 @@ const AddWidget = () => {
         // handle DB storage or API call to server here for permanent storage
     }
 
+    const handleOnUncheck = (item, index) => {
+        const updatedWidgets = categoryWidgets.filter((_, i) => i !== index);
+        setCategoryWidgets(updatedWidgets);
+    }
 
     return (
         <div className={`h-[100vh] min-w-[40vw] bg-white  rounded absolute z-10 right-0 shadow-2xl ${show ? "" : "hidden"} `}>
@@ -90,14 +93,18 @@ const AddWidget = () => {
                     {categoryWidgets.map((item, index) => {
 
                         return <div className='flex border-2 border-gray-300 rounded-lg p-3 m-2 ' key={index}>
-                            <input type='checkbox' className='w-6 ' defaultChecked />
+                            <input
+                                type='checkbox'
+                                className='w-6 '
+                                defaultChecked={item.isChecked ? true : false}
+                                onChange={() => handleOnUncheck(item, index)} />
                             <div key={index} className='p-2'>{item.widgetName}</div>
                         </div>
                     })}
                 </div>
                 {<AddWidgetForm />}
                 <div className='flex justify-end mt-auto' >
-                    <Button text={"Cancel"} onClickHandler={handleCancel} className={`px-8 bg-white text-slate-900 border-2 border-slate-900 `} />
+                    <Button text={"Cancel"} onClickHandler={handleCancel} className={`px-8 bg-white text-black border-2 border-slate-900 `} />
                     <Button text={"Submit"} onClickHandler={handleSubmit} className={`px-8 bg-slate-900 text-white border-2 border-slate-900 `} />
                 </div>
             </div>
